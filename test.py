@@ -11,15 +11,13 @@ def index():
     
     if request.method=="GET":
         return render_template("index.html", posts=posts)
-        '''
+
     else:
-        #not really gonna be this
-        return render_template("index.html", postname="POST NAME")
-        #actually post the thing
-        #meaning add it to the database
-        #go to new post's page
-        return render_template("index.html", postname="POST NAME")
-        '''
+        new_title = request.form['title']
+        new_post = request.form['post']
+        backend.addPost(new_title, new_post)
+        posts = backend.getAllPosts()
+        return render_template("index.html", posts=posts)
     
 
 @test.route("/post/<title>",methods=["GET","POST"])
