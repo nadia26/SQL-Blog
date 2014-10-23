@@ -60,10 +60,24 @@ def getComments(title): #need to add sanitization on add and get: sanitize at th
     return timeSort(temp)
 #    return comments
 
+def getAllPosts(): #need to add sanitization on add and get: sanitize at the beginning of add and in temp
+    #but tuples are immutable, so put it in the list comprehension perhaps? not really sure, may need to do more stuff. D:
+    '''returns an array of tuples (comment, timestamp)
+    '''
+    q = "SELECT * FROM posts"
+    posts = c.execute(q)
+    com.commit()
+    temp = [x for x in comments]
+    return timeSortPosts(temp)
+
 def timeSort(blurbs): #blurps is an array of tuples, with the first element in the tuple being the text and the second being the time
     blurbs = sorted(blurbs, key = lambda tstamp: tstamp[1])
-    
     return blurbs
+
+def timeSortPosts(blurbs): #getAllPosts returns a tuple with three values, where timestamp is the last.
+    blurbs = sorted(blurbs, key = lambda tstamp: tstamp[2])
+    return blurbs
+
 
 if (__name__ == '__main__'):
     addPost('pieeeeeeeeeeeeeeeeeeeeeeeee', 'I love pie!')
