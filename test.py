@@ -7,6 +7,8 @@ def index():
     if request.method=="GET":
         return render_template("index.html", postname="POST NAME")
     else:
+        #not really gonna be this
+        return render_template("index.html", postname="POST NAME")
         #actually post the thing
         #meaning add it to the database
         #go to new post's page
