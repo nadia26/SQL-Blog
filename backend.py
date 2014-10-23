@@ -65,22 +65,22 @@ def timeSort(blurbs): #blurps is an array of tuples, with the first element in t
     
     return blurbs
 
-
-addPost('pieeeeeeeeeeeeeeeeeeeeeeeee', 'I love pie!')
-time.sleep(1)
-addPost('testing...', 'Is anybody here?')
-time.sleep(1)
-addComment('pieeeeeeeeeeeeeeeeeeeeeeeee', 'need to sanitize commas at least')
-time.sleep(1)
-addComment('pieeeeeeeeeeeeeeeeeeeeeeeee', 'cake is better')
-time.sleep(1)
-addComment('testing...', 'testing123')
-time.sleep(1)
-
-a = getPosts('testing...')
-b = getComments('pieeeeeeeeeeeeeeeeeeeeeeeee')
-#print a
-print a
-print b
-
+if (__name__ == '__main__'):
+    addPost('pieeeeeeeeeeeeeeeeeeeeeeeee', 'I love pie!')
+    time.sleep(1)
+    addPost('testing...', 'Is anybody here?')
+    time.sleep(1)
+    addComment('pieeeeeeeeeeeeeeeeeeeeeeeee', 'need to sanitize commas at least')
+    time.sleep(1)
+    addComment('pieeeeeeeeeeeeeeeeeeeeeeeee', 'cake is better')
+    time.sleep(1)
+    addComment('testing...', 'testing123')
+    time.sleep(1)
+    
+    a = getPosts('testing...')
+    b = getComments('pieeeeeeeeeeeeeeeeeeeeeeeee')
+    #print a
+    print a
+    print b
+    
 

@@ -10,6 +10,7 @@ def index():
         #actually post the thing
         #meaning add it to the database
         #go to new post's page
+        return render_template("index.html", postname="POST NAME")
 
 
 
