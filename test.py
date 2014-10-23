@@ -17,10 +17,14 @@ def index():
     
 
 @test.route("/<post>",methods=["GET","POST"])
-def post(title,post):
+def post(title):
+    button = request.args.get("b",None)
     title = request.args.get("title",None)
-    post = request.args.get("post",None)
-    return render_template("post.html", title=title, post = post, body="BODY")
+    post = request.args.get("Post",None)
+    if button == "Post":
+        addPost(title,post)
+        print "yes!"
+        return render_template("post.html", title = title, post = post)
 
 if __name__=="__main__":
     test.debug=True
