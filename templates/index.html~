@@ -2,7 +2,34 @@
   <head>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   </head>
-  <body>
-    <h1>yo</h1>
-  </body>
+<body>
+
+
+  <div class="pure-g">
+
+    <div class="pure-u-1-8"></div>
+    <div class="pure-u-3-4">
+      <h1>BLOG</h1><br>
+
+      <!--FOR EACH THING IN THE DATABASE -->
+      <a href="/{{postname}}">{{postname}}</a>
+      <!--end for-->
+
+      <br><br><br>
+      <form class="pure-form" method="POST">
+	<fieldset>
+          <legend>New Post</legend>
+          <input class="pure-input-1" type="text" name="title" placeholder="Title"><br><br>
+	  <textarea class="pure-input-1" rows="10" type="text" class="form-control" name="blogtext" placeholder="Body"></textarea><br><br>
+	  <button type="submit" class="pure-button pure-button-primary">Post</button>
+	</fieldset>
+      </form>
+
+    </div>
+    <div class="pure-u-1-8"></div>
+
+
+  </div>
+
+</body>
 </html>

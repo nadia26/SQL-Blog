@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 
 test = Flask(__name__)
 
-@test.route("/",methods=["GET","POST"])
 @test.route("/index",methods=["GET","POST"])
 def index():
     if request.method=="GET":
@@ -14,13 +13,12 @@ def index():
         #meaning add it to the database
         #go to new post's page
         return render_template("index.html", postname="POST NAME")
-    
 
-@test.route("/<post>",methods=["GET","POST"])
-def post(title,post):
-    title = request.args.get("title",None)
-    post = request.args.get("post",None)
-    return render_template("post.html", title=title, post = post, body="BODY")
+
+
+@test.route("/<postname>")
+def postpage(postname):
+    return render_template("post.html", title=postname, body="BODY")
 
 if __name__=="__main__":
     test.debug=True
