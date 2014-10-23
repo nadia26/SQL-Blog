@@ -2,7 +2,7 @@ import sqlite3
 import csv
 import time
 
-com= sqlite3.connect('test.db')
+com= sqlite3.connect('test.db', check_same_thread = False)
 c=com.cursor()
 '''
 BASE="INSERT INTO posts VALUES('%(title)s','%(body)s')"
@@ -67,7 +67,7 @@ def getAllPosts(): #need to add sanitization on add and get: sanitize at the beg
     q = "SELECT * FROM posts"
     posts = c.execute(q)
     com.commit()
-    temp = [x for x in comments]
+    temp = [x for x in posts]
     return timeSortPosts(temp)
 
 def timeSort(blurbs): #blurps is an array of tuples, with the first element in the tuple being the text and the second being the time
