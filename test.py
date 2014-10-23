@@ -24,10 +24,32 @@ def index():
 
 @test.route("/post/<title>",methods=["GET","POST"])
 def post(title):
-    title = request.args.get("title",None)
-    post = request.args.get("Post",None)
+    body = request.form.get("post",None)
+    if len(backend.getPosts(title))== 0:
+        backend.addPost(title,body)
+    else:
+        body = backend.getPosts(title)
+        commments = backend.getComments(title)
+    
     if request.method == "GET":
-        return render_template("post.html", title = title, post = post)
+        if len(backend.getPosts(title))== 0:
+            render_template("error.html")
+        else:
+            body = backend.getPosts(title)
+            commments = backend.getComments(title)
+            return render_template("post.html", title = title, post = body, comments = comments)
+    else:
+        
+        if len(backedng.getPosts(title))==0:
+            backend.addPost(title,body)
+        post = request.args.get("Post",None)
+        comments = backend.getComments(title)
+        if title == None:
+            render_template("error.html")
+        else:
+            backend.addPost(title)
+        return render_template("post.html", title = title, post = body, comments = comments)
+        
 
 if __name__=="__main__":
     test.debug=True

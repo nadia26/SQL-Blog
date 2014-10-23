@@ -12,12 +12,12 @@
       <h1>BLOG</h1><br>
 
       {% for item in posts %}
-        {{item[1]}} <!-- proof of concept: make this into href to specific title.  item[1] is the body of the post, item[0] is its title.  API works.!-->
+        <a href="/post/{{item[0]}}">{{item[0]}}</a><br> <!-- proof of concept: make this into href to specific title.  item[1] is the body of the post, item[0] is its title.  API works.!-->
       {% endfor %}
 
       <br><br><br>
 
-        <form class="pure-form" method="POST" action="/post">
+        <form class="pure-form" method="POST" action="/index">
 	  <fieldset>
 	    <legend>WRITE A POST</legends><br><br>
 
