@@ -28,6 +28,7 @@ com.commit()
 
 def addPost(title, body):
     q = "INSERT INTO posts VALUES('" + title + "','" + body + "','" + str(time.time()) + "')"
+    #q = "INSERT INTO posts VALUES('%s', '%s', '%s')", (title, body, str(time.time()))
     print q
     c.execute(q)
     com.commit()

@@ -19,10 +19,11 @@ def index():
         posts = backend.getAllPosts()
         return render_template("index.html", posts=posts)
     
-
+\
 @test.route("/post/<title>",methods=["GET","POST"])
 def post(title):
     comments = backend.getComments(title)
+    post = backend.getPosts(title)
     if request.method == "POST":
         new_comment = request.form['comment']
         backend.addComment(title, new_comment)
