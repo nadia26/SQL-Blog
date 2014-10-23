@@ -5,13 +5,17 @@ test = Flask(__name__)
 @test.route("/index",methods=["GET","POST"])
 def index():
     if request.method=="GET":
-        return render_template("index.html")
+        return render_template("index.html", postname="POST NAME")
     else:
-        return render_template("post.html", title=request.form["title"])
+        #actually post the thing
+        #meaning add it to the database
+        #go to new post's page
 
-@test.route("/post")
-def postpage():
-    return render_template("post.html", title="Title of Post")
+
+
+@test.route("/<postname>")
+def postpage(postname):
+    return render_template("post.html", title=postname, body="BODY")
 
 if __name__=="__main__":
     test.debug=True
