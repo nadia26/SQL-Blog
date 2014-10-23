@@ -11,18 +11,25 @@
     <div class="pure-u-3-4">
       <h1>BLOG</h1><br>
 
-      <!--FOR EACH THING IN THE DATABASE -->
-      <a href="/{{postname}}">{{postname}}</a>
-      <!--end for-->
+      {% for item in posts %}
+        {{item[1]}} <!-- proof of concept: make this into href to specific title.  item[1] is the body of the post, item[0] is its title.  API works.!-->
+      {% endfor %}
 
       <br><br><br>
-      <form class="pure-form" method="POST">
-	<fieldset>
-          <legend>New Post</legend>
-          <input class="pure-input-1" type="text" name="title" placeholder="Title"><br><br>
-	  <textarea class="pure-input-1" rows="10" type="text" class="form-control" name="blogtext" placeholder="Body"></textarea><br><br>
-	  <button type="submit" class="pure-button pure-button-primary">Post</button>
-	</fieldset>
+
+        <form class="pure-form" method="POST" action="/index">
+	  <fieldset>
+	    <legend>WRITE A POST</legends><br><br>
+
+            <label for="title">Title</label><br>
+	    <input name="title" type="title" placeholder="Title"><br><br>
+
+	    <label for="post">What's on Your Mind?</label><br>
+	    <textarea name="post" cols="100" rows="10" placeholder="Write something..."></textarea><br>
+
+	    <button type="submit" name="b" value="Post" class="pure-button pure-button-primary">POST</button>
+          </fieldset>
+
       </form>
 
     </div>
