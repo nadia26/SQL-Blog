@@ -12,7 +12,7 @@
       <h1><a href = "/index"> BLOG</a> </h1><br>
 
       {% for item in posts %}
-        <a href = "/post/{{item[0]}}"> {{item[0]}}<br> </a> <!-- proof of concept: make this into href to specific title.  item[1] is the body of the post, item[0] is its title.  API works.!-->
+        <a href = "/post/{{item[0]}}"> {{item[0]}}<br></a> {{item[0]|truncate(9, True)}}<br><br><!-- proof of concept: make this into href to specific title.  item[1] is the body of the post, item[0] is its title.  API works.!-->
       {% endfor %}
 
       <br><br><br>
