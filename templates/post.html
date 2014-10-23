@@ -27,10 +27,12 @@
 
 	  <tbody>
 	    <!-- FOR EACH COMMMENT FROM DB -->
+	    {% for x in comments %}
 	    <tr>
-	      <td><br>COMMENT<br><br></td>
+	      <td><br>{{x[0]}}<br><br></td>
 	    </tr>
 	    <!-- end for -->
+	    {% endfor %}
 
 	    <tr>
 	      <td></td>
@@ -44,10 +46,10 @@
 
 	<p>{{post.title}}</p>
 	<p>{{post.post}}</p>
-	<form action="/post" class="pure-form" method="POST">
+	<form action="/post/{{title}}" class="pure-form" method="POST">
 	  <fieldset>
             <legend>Add Comment</legend>
-	    <textarea class="pure-input-1" rows="5" type="text" class="form-control" name="blogtext" placeholder="Body"></textarea><br><br>
+	    <textarea class="pure-input-1" rows="5" type="text" class="form-control" name="comment" placeholder="Body"></textarea><br><br>
 	    <button type="submit" class="pure-button pure-button-primary">Post</button>
 	  </fieldset>
 	</form>
