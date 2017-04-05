@@ -1,9 +1,8 @@
-python-attack-of-the-pythons
+SQL-Blog
 ============================
 
-sql to python 1, the python menace
+Blogging engine with simple posting/commennting functionality using SQL
 
 TO RUN:
-
 1. PYTHON INIT.PY
 2. PYTHON TEST.PY
